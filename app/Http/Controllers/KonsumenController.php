@@ -15,7 +15,6 @@ class KonsumenController extends Controller
     public function index()
     {
         $konsumen = User::role('konsumen')->get();
-
         return view('konsumen.index', compact('konsumen'));
     }
 
@@ -26,7 +25,8 @@ class KonsumenController extends Controller
      */
     public function create()
     {
-        //
+        $kode = 'KOSM' . str_pad(User::orderBy('id', 'desc')->first()->id + 1, 4, '0', STR_PAD_LEFT);
+        return view('konsumen.create', compact('kode'));
     }
 
     /**
@@ -37,7 +37,18 @@ class KonsumenController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = User::create([
+            // nu ka satu ngambil dari database kode_user
+            // nu ka dua dari name form anu di view kode_konsumen
+            'kode_user' => $request->kode_konsumen,
+            'name' => $request->nama,
+            'email' => $request->email,
+            'no_telp' => $request->no_telp,
+            'alamat' => $request->alamat,
+            'password' => 'NOTASSIGN',
+        ]);
+        $user->assignRole('konsumen');
+        return redirect()->route('konsumen.index');
     }
 
     /**
@@ -59,7 +70,8 @@ class KonsumenController extends Controller
      */
     public function edit($id)
     {
-        //
+        $konsumen = User::findOrFail($id);
+        return view('konsumen.edit', compact('konsumen'));
     }
 
     /**
@@ -71,7 +83,15 @@ class KonsumenController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $konsumen= User::findOrFail($id);
+        $konsumen->update([
+            'name' => $request->nama,
+            'email' => $request->email,
+            'no_telp' => $request->no_telp,
+            'alamat' => $request->alamat,
+        ]);
+
+        return redirect()->route('konsumen.index');
     }
 
     /**
@@ -82,6 +102,11 @@ class KonsumenController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // 1. cari dulu user dengan id yang dikirim
+        $user = User::find($id);
+        // 2. delete user yang sudah di cari
+        $user->delete();
+        // 3. balik lagi ke tabel
+        return redirect()->route('konsumen.index');
     }
 }

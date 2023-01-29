@@ -1,6 +1,8 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KonsumenController;
 
 /*
@@ -23,12 +25,19 @@ Route::get('/index', function() {
 });
 
 Route::get('/dashboard', function() {
-    return view('dashboard/index');
+    return view('dashboard.index');
 });
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/konsumen', [KonsumenController::class, 'index'])->name('konsumen.index');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-Route::delete('/konsumen/destory/{user}',[KonsumenController::class, 'destory'])->name('konsumen');
+// KONSUMEN method di route berpengaruh ke form
+
+Route::get('/konsumen', [KonsumenController::class, 'index'])->name('konsumen.index');
+Route::delete('/konsumen/destroy/{user}',[KonsumenController::class, 'destroy'])->name('konsumen.destroy');
+Route::get('/konsumen/create', [KonsumenController::class, 'create'])->name('konsumen.create');
+Route::post('/konsumen/store', [KonsumenController::class, 'store'])->name('konsumen.store');
+
+Route::get('/konsumen/edit/{user}', [KonsumenController::class, 'edit'])->name('konsumen.edit');
+Route::patch('/konsumen/update/{user}', [KonsumenController::class, 'update'])->name('konsumen.update');

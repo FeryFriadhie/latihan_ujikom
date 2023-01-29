@@ -1,7 +1,9 @@
 @extends('layouts.test')
 
+@section('title', 'Laundry SMKN 1 Ciamis')
+
 @section('content')
 <div>
-    Hallo ini section
+    Halo ini section
 </div>
 @endsection
