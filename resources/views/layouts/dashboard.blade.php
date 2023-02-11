@@ -9,7 +9,7 @@
 	<meta name="author" content="">
 	<meta name="theme-color" content="#3e454c">
 	
-	<title>@yield('title')</title>
+	<title>@yield('title') | Laundry SMKN 1 Ciamis</title>
 
 
 	<!-- Font awesome -->
@@ -81,7 +81,6 @@
 						</ul>
 					</li>
 				</ul>
-
 			</ul>
 		</nav>
 		<div class="content-wrapper">

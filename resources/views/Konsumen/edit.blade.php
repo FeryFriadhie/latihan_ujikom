@@ -12,7 +12,7 @@
                 <div class="col-md-12">
                     <div class="panel panel-default">
                         <div class="panel-body">
-                            <form action="{{ route('konsumen.update', $konsumen->id ) }}" method="post" class="form-horizontal">
+                            <form action="{{ route('konsumen.update', $konsumen->id ) }}" method="post" class="form-horizontal" autocomplete="off">
                                 @csrf
                                 @method('PATCH')
                                 <div class="row">
@@ -64,8 +64,8 @@
                                 <div class="hr-dashed"></div>
                                 <div class="form-group">
                                     <div class="col-sm-8 col-sm-offset-2">
-                                        <a href="/konsumen" class="btn btn-default" type="submit"><span class="glyphicon glyphicon-chevron-left"></span> Batal</a>
-                                        <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-floppy-save"></span> Simpan</button>
+                                        <a href="/konsumen" class="btn btn-default" type="submit"> Batal</a>
+                                        <button class="btn btn-primary" type="submit"> Simpan</button>
                                     </div>
                                 </div>
                             </form>
@@ -76,5 +76,4 @@
         </div>
     </div>
 </div>
-
 @endsection

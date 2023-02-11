@@ -1,25 +1,25 @@
 @extends('layouts.dashboard')
 
-@section('title', 'Tambah Data Konsumen')
+@section('title', 'Tambah Data Karyawan')
 
 @section('content')  
 
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
-            <h2 class="page-title">Tambah Data Konsumen</h2>
+            <h2 class="page-title">Tambah Data Karyawan</h2>
             <div class="row">
                 <div class="col-md-12">
                     <div class="panel panel-default">
                         <div class="panel-body">
-                            <form action="{{ route('konsumen.store') }}" method="post" class="form-horizontal" autocomplete="off">
+                            <form action="{{ route('karyawan.store') }}" method="post" class="form-horizontal" autocomplete="off">
                                 @csrf
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="kode_konsumen" class="col-lg-2 control-label">Kode Konsumen</label>
+                                            <label for="kode_karyawan" class="col-lg-2 control-label">Kode Karyawan</label>
                                             <div class="col-lg-10">
-                                                <input type="text" readonly value="{{ $kode }}" id="kode_konsumen" name="kode_konsumen" class="form-control">
+                                                <input type="text" readonly value="{{ $kode }}" id="kode_karyawan" name="kode_karyawan" class="form-control">
                                             </div>
                                         </div>
                                     </div>
@@ -63,7 +63,7 @@
                                 <div class="hr-dashed"></div>
                                 <div class="form-group">
                                     <div class="col-sm-8 col-sm-offset-2">
-                                        <a href="/konsumen" class="btn btn-default" type="submit"> Batal</a>
+                                        <a href="/karyawan" class="btn btn-default" type="submit"> Batal</a>
                                         <button class="btn btn-primary" type="submit"> Simpan</button>
                                     </div>
                                 </div>

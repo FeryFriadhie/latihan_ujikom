@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
         Role::create(['name' => 'pemilik']);
         Role::create(['name' => 'karyawan']);
         Role::create(['name' => 'konsumen']);
-        // \App\Models\User::factory(10)->create();
+        // User::factory(10)->create();
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',

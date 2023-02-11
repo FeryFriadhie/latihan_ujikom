@@ -51,7 +51,7 @@
                                     <ul style="margin-left:-7vw;" class="dropdown-menu" aria-labelledby="dropdownMenu1">
                                         <li>
                                             <form action="{{ route('konsumen.edit', $kons->id) }}" method="post">
-                                                @csrf
+                                                @csrf 
                                                 @method('GET')
                                                 <button type="submit">
                                                     <i class="glyphicon glyphicon-pencil text-primary"></i> Ubah
